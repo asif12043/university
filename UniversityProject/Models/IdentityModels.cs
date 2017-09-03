@@ -21,7 +21,7 @@ namespace UniversityProject.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("UniversityContextDb", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,15 @@ namespace UniversityProject.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Course> Courses { get; set; }
+
+        public DbSet<Student> Students { get; set; }
+
+        public DbSet<Tutor> Tutors { get; set; }
+
+        public DbSet<Subject> Subjects { get; set; }
+
+        public DbSet<Enrollment> Enrollments { get; set; }
     }
 }
